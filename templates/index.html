@@ -1,0 +1,32 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>PersonalityAI as a Service</h1>
+  <h2>パーソナリティAI管理</h2>
+  <ul>
+    <li><a href="{{ url_for('personality_list') }}">AIパーソナリティ一覧</a></li>
+    <li><a href="{{ url_for('personality_create_input') }}">AIパーソナリティ登録</a></li>
+  </ul>
+  <h2>パーソナリティAIサービス</h2>
+  <h5>1on1チャット</h5>
+  <ul>
+    <li><a href="{{ url_for('chat_list') }}">1on1チャット</a></li>
+  </ul>
+  <h5>AIミーティング</h5>
+  <ul>
+    <li><a href="{{ url_for('meeting_list') }}">AIミーティング一覧</a></li>
+    <li><a href="{{ url_for('meeting_create_input') }}">AIミーティング登録</a></li>
+  </ul>
+  <h5>AIアンケート</h5>
+  <ul>
+    <li><a href="{{ url_for('questionnaire_list') }}">AIアンケート一覧</a></li>
+    <li><a href="{{ url_for('questionnaire_create_input') }}">AIアンケート登録</a></li>
+  </ul>
+  <h5>AIパーソナリティのアイディア集</h5>
+  <ul>
+    <li>（Coming soon）</li>
+  </ul>
+  
+</div>
+{% endblock %}

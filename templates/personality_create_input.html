@@ -1,0 +1,64 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>パーソナリティ登録入力画面</h1>
+  <form action="/personality_create_action" method="POST">
+    <table>
+      <tbody>
+        <tr>
+          <td><label for="name">名前（ニックネーム）<span class="badge badge-danger">必須</span></label></td>
+          <td><input type="text" name="name"></input></td>
+        </tr>
+        <tr>
+          <td><label for="mail">メールアドレス<span class="badge badge-danger">必須</span></label></td>
+          <td><input type="text" name="mail"></td>
+        </tr>
+        <tr>
+          <td><label for="sex">性別<span class="badge badge-danger">必須</span></label></td>
+          <td>
+            {% for sex in sexes %}
+              <input type="radio" name="sex" value="{{ sex.sex }}" {% if sex.sex == 0 %} checked {% endif %}>{{ sex.sex_name }}
+            {% endfor %}
+          </td>
+        </tr>
+        <tr>
+          <td><label for="age">年齢<span class="badge badge-danger">必須</span></label></td>
+          <td>
+            <select name="age">
+              {% for i in range(1, 100, 1) %}
+                <option value="{{ i }}">{{ i }}</option>
+              {% endfor %}
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="basic_info">基本情報</label></td>
+          <td><textarea name="basic_info" cols="100" rows="10"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="career_info">経歴・キャリア</label></td>
+          <td><textarea name="career_info" cols="100" rows="10"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="stereo_type">ステレオタイプ</label></td>
+          <td>
+            <select name="stereo_type">
+              {% for stereo_type in stereo_types %}
+                <option value="{{ stereo_type.stereo_type }}">{{ stereo_type.stereo_name }}</option>
+              {% endfor %}
+            </select>
+            <a href="https://www.16personalities.com/ja" target="_blank">診断はこちら</a>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="detail_info">詳細情報</label></td>
+          <td><textarea name="detail_info" cols="100" rows="10"></textarea></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">登録</button>
+  </form>
+</div>
+{% endblock %}

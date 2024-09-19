@@ -1,0 +1,57 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>AIミーティング詳細</h1>
+  <a href="{{ url_for('meeting_list') }}">戻る</a>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td style="width: 20%">No</td>
+        <td>{{ meeting.meeting_id }}</td>
+      </tr>
+      <tr>
+        <td>テーマ</td>
+        <td>{{ meeting.theme }}</td>
+      </tr>
+      <tr>
+        <td>参加者</td>
+        <td>
+          {% for meeting_personality in meeting_personalities %}
+            <p>{{ meeting_personality.name }}</p>
+          {% endfor %}
+      </td>
+      </tr>
+      <tr>
+        <td>結果</td>
+        <td>{{ meeting.result }}</td>
+      </tr>
+      <tr>
+        <td>ステータス</td>
+        <td>{{ meeting.meeting_status_name }}</td>
+      </tr>
+      <tr>
+        <td>ミーティング登録日時</td>
+        <td>{{ meeting.registered_date }}</td>
+      </tr>
+      <tr>
+        <td>ミーティング開始日時</td>
+        <td>{{ meeting.start_date }}</td>
+      </tr>
+      <tr>
+        <td>ミーティング終了日時</td>
+        <td>{{ meeting.end_date }}</td>
+      </tr>
+      <tr>
+        <td><label for="updated_date">更新日時</label></td>
+        <td>{{ meeting.updated_date }}</td>
+      </tr>
+      <tr>
+        <td>会議内容（参考）</td>
+        <td><pre  style="white-space: pre-wrap;">{{ meeting.summary }}</pre></td>
+      </tr>
+      
+    </tbody>
+  </table>  
+</div>
+{% endblock %}

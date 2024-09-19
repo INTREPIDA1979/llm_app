@@ -1,0 +1,43 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>AIミーティング一覧</h2>
+  <table class="table">
+    <thead class="table-light">
+      <tr>
+        <td></td>
+        <td>No</td>
+        <td>テーマ</td>
+        <td>参加者</td>
+        <td>ステータス</td>
+        <td>登録日時</td>
+        <td>ミーティング開始日時</td>
+        <td>ミーティング終了日時</td>
+        <td>更新日時</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for meeting in meetings %}
+        <tr>
+          <td><a href="{{ url_for('meeting_detail') }}?meeting_id={{ meeting.meeting_id }}">詳細へ</a></td>
+          <td>{{ meeting.meeting_id }}</td>
+          <td>{{ meeting.theme }}</td>
+          <td>
+              {% for meeting_personality in meeting_personalities %}
+                {% if meeting.meeting_id == meeting_personality.meeting_id %}
+                  <p>{{ meeting_personality.name }}</p>
+                {% endif %}
+              {% endfor %}
+          </td>
+          <td>{{ meeting.meeting_status_name }}</td>
+          <td>{{ meeting.registered_date }}</td>
+          <td>{{ meeting.start_date }}</td>
+          <td>{{ meeting.end_date }}</td>
+          <td>{{ meeting.updated_date }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

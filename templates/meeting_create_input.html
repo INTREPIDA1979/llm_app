@@ -1,0 +1,44 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>AI会議登録画面</h2>
+  <form action="/meeting_create_action" method="POST">
+    <table class="table">
+      <thead class="table-light">
+        <tr>
+          <td>参加者</td>
+          <td>名前（ニックネーム）</td>
+          <td>メール</td>
+          <td>性別</td>
+          <td>年齢</td>
+          <td>ステレオタイプ</td>
+          <td>更新日時</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for personality in personalities %}
+          <tr>
+            <td><input type="checkbox" name="ids" value="{{ personality.id }}"></td>
+            <td>{{ personality.name }}</td>
+            <td>{{ personality.mail }}</td>
+            <td>{{ personality.sex_name }}</td>
+            <td>{{ personality.age }}</td>
+            <td>{{ personality.stereo_name }}</td>
+            <td>{{ personality.updated_date }}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  <table>
+    <tbody>
+      <tr>
+        <td><label for="theme">テーマ</label></td>
+        <td><textarea name="theme" cols="100" rows="3"></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="submit" class="btn btn-primary">登録</button>
+  </form>
+</div>
+{% endblock %}

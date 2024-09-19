@@ -1,0 +1,39 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>AIアンケート一覧</h2>
+  <table class="table">
+    <thead class="table-light">
+      <tr>
+        <td></td>
+        <td>No</td>
+        <td>アンケート内容</td>
+        <td>対象性別</td>
+        <td>対象年齢</td>
+        <td>ステータス</td>
+        <td>登録日時</td>
+        <td>アンケート開始日時</td>
+        <td>アンケート終了日時</td>
+        <td>更新日時</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for questionnaire in questionnaires %}
+        <tr>
+          <td><a href="{{ url_for('questionnaire_detail') }}?questionnaire_id={{ questionnaire.questionnaire_id }}">詳細へ</a></td>
+          <td>{{ questionnaire.questionnaire_id }}</td>
+          <td>{{ questionnaire.question }}</td>
+          <td>{{ questionnaire.sex_range_content }}</td>
+          <td>{{ questionnaire.age_range_content }}</td>
+          <td>{{ questionnaire.questionnaire_status_name }}</td>
+          <td>{{ questionnaire.registered_date }}</td>
+          <td>{{ questionnaire.start_date }}</td>
+          <td>{{ questionnaire.end_date }}</td>
+          <td>{{ questionnaire.updated_date }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

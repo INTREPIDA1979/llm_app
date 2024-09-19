@@ -1,0 +1,40 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>AIアンケート登録入力画面</h1>
+  <form action="/questionnaire_create_action" method="POST">
+    <table>
+      <tbody>
+        <tr>
+          <td>アンケート内容</td>
+          <td><textarea name="question" cols="100" rows="10"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="sex_range">対象性別</label></td>
+          <td><input type="radio" name="sex_range" value="1" checked> すべて
+            <input type="radio" name="sex_range" value="2"> 男性と女性
+            <input type="radio" name="sex_range" value="3"> 男性
+            <input type="radio" name="sex_range" value="4"> 女性
+          </td>
+        </tr>
+        <tr>
+          <td>対象年齢</td>
+          <td>
+            <select name="age_range">
+              <option value="0">すべて</option>
+              <option value="1">20歳未満</option>
+              <option value="2">20～30歳</option>
+              <option value="3">30～40歳</option>
+              <option value="4">40～60歳</option>
+              <option value="5">61歳以上</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">登録</button>
+  </form>
+</div>
+{% endblock %}

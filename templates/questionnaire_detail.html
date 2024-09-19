@@ -1,0 +1,60 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>AIアンケート詳細</h1>
+  <a href="{{ url_for('questionnaire_list') }}">戻る</a>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td style="width: 20%">No</td>
+        <td>{{ questionnaire.questionnaire_id }}</td>
+      </tr>
+      <tr>
+        <td>アンケート内容</td>
+        <td>{{ questionnaire.question }}</td>
+      </tr>
+      <tr>
+        <td>性別範囲</td>
+        <td>{{ questionnaire.sex_range_content }}</td>
+      </tr>
+      <tr>
+        <td>年齢範囲</td>
+        <td>{{ questionnaire.age_range_content }}</td>
+      </tr>
+      <tr>
+        <td>結果</td>
+        <td>{{ questionnaire.result }}</td>
+      </tr>
+      <tr>
+        <td>アンケート回答人数</td>
+        <td>{{ questionnaire.answer_cnt }}</td>
+      </tr>
+      <tr>
+        <td>アンケート回答</td>
+        <td><pre  style="white-space: pre-wrap;">{{ questionnaire.answer }}</pre></td>
+      </tr>
+      <tr>
+        <td>ステータス</td>
+        <td>{{ questionnaire.questionnaire_status_name }}</td>
+      </tr>
+      <tr>
+        <td>アンケート登録日時</td>
+        <td>{{ questionnaire.registered_date }}</td>
+      </tr>
+      <tr>
+        <td>アンケート開始日時</td>
+        <td>{{ questionnaire.start_date }}</td>
+      </tr>
+      <tr>
+        <td>アンケート終了日時</td>
+        <td>{{ questionnaire.end_date }}</td>
+      </tr>
+      <tr>
+        <td><label for="updated_date">更新日時</label></td>
+        <td>{{ questionnaire.updated_date }}</td>
+      </tr>
+    </tbody>
+  </table>  
+</div>
+{% endblock %}

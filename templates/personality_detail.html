@@ -1,0 +1,58 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>パーソナリティ詳細</h1>
+  <a href="{{ url_for('personality_list') }}">戻る</a>&nbsp;&nbsp;
+  <a href="{{ url_for('personality_update_input') }}?id={{personality.id}}">更新</a>&nbsp;&nbsp;
+  <a href="{{ url_for('personality_delete_input') }}?id={{personality.id}}">削除</a>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td style="width: 20%"><label for="name">名前（ニックネーム）</label></td>
+        <td>{{ personality.name }}</td>
+      </tr>
+      <tr>
+        <td><label for="mail">メールアドレス</label></td>
+        <td>{{ personality.mail }}</td>
+      </tr>
+      <tr>
+        <td><label for="sex">性別</label></td>
+        <td>{{ personality.sex_name }}</td>
+      </tr>
+      <tr>
+        <td><label for="age">年齢</label></td>
+        <td>{{ personality.age }}</td>
+      </tr>
+      <tr>
+        <td><label for="basic_info">基本情報</label></td>
+        <td>{{ personality.basic_info }}</td>
+      </tr>
+      <tr>
+        <td><label for="career_info">経歴・キャリア</label></td>
+        <td>{{ personality.career_info }}</td>
+      </tr>
+      <tr>
+        <td><label for="stereo_type">ステレオタイプ</label></td>
+        <td>{{ personality.stereo_name }}</td>
+      </tr>
+      <tr>
+        <td><label for="detail_info">詳細情報</label></td>
+        <td>{{ personality.detail_info }}</td>
+      </tr>
+      <tr>
+        <td><label for="personality_summary">パーソナリティ要約情報</label></td>
+        <td>{{ personality.personality_summary }}</td>
+      </tr>
+      <tr>
+        <td><label for="created_date">登録日時</label></td>
+        <td>{{ personality.created_date }}</td>
+      </tr>
+      <tr>
+        <td><label for="updated_date">更新日時</label></td>
+        <td>{{ personality.updated_date }}</td>
+      </tr>
+    </tbody>
+  </table>  
+</div>
+{% endblock %}
