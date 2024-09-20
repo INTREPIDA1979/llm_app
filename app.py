@@ -34,6 +34,8 @@ log_client.setup_logging()
 db = None
 
 # LLM初期化　#TODO 後で関数にして、起動時に生成（グローバル変数はchainのみでよいので）
+# バッチはクォータ制限の影響で、VertexAIとGeminiAPIの併用を可能にしている。
+# Webアプリは、そんなにLLMを実行しないので、VertexAIのみの設定でとりあえず大丈夫。
 #llm = ChatGoogleGenerativeAI(model="gemini-pro")
 llm = VertexAI(model="gemini-pro")
 memory = ConversationBufferMemory (

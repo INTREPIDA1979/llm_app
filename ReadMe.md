@@ -7,7 +7,7 @@
   - GitHubから以下のソースコードをダウンロードしておく。
     - https://github.com/INTREPIDA1979/llm_app
     - https://github.com/INTREPIDA1979/llm_meeting_batch
-    - https://github.com/INTREPIDA1979/llm_questionnaire_batchあああ
+    - https://github.com/INTREPIDA1979/llm_questionnaire_batch
 
 ## データベースの初期化
 以下のコマンドでデータベースにアクセスする。
