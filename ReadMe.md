@@ -90,7 +90,7 @@ INSTANCE_NAME={INSTANCE_NAME}
 INSTANCE_CONNECTION_NAME='{PROJECT_ID}:{REGION}:{INSTANCE_NAME}'
 #GOOGLE_AI='GEMINI'
 GOOGLE_AI='VERTEX_AI'
-GOOGLE_API_KEY='{GOOGLE_API_KEY}'
+#GOOGLE_API_KEY='{GOOGLE_API_KEY}'
 
 # Artifacts repositories 作成(AI Meeting batch)
 gcloud artifacts repositories create $AR_REPO \
@@ -154,5 +154,5 @@ gcloud run jobs execute $SERVICE_NAME --region=$REGION
 AR_REPO=llm-questionnaire_batch
 SERVICE_NAME=llm-questionnaire_batch
 
-(上記以外は、AIミーティングバッチの構築と同じ)
+(上記設定以外は、AIミーティングバッチの構築と同じ)
 ```
