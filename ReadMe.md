@@ -56,7 +56,7 @@ gcloud artifacts repositories create $AR_REPO \
   
 # PUSH to Artifact Registry
 cd
-cd llm_app
+cd $SERVICE_NAME
 
 gcloud builds submit --tag $REGION-docker.pkg.dev/$PROJECT_ID/$AR_REPO/$SERVICE_NAME \
   --project=$PROJECT_ID
@@ -99,6 +99,9 @@ gcloud artifacts repositories create $AR_REPO \
  --project=$PROJECT_ID
 
 # PUSH to Artifact Registry
+cd
+cd $SERVICE_NAME
+
 gcloud builds submit --tag $REGION-docker.pkg.dev/$PROJECT_ID/$AR_REPO/$SERVICE_NAME \
   --project=$PROJECT_ID
 
@@ -128,6 +131,9 @@ gcloud run jobs execute $SERVICE_NAME --region=$REGION
 
 # (option) update & execute
 # PUSH to Artifact Registry
+cd
+cd $SERVICE_NAME
+
 gcloud builds submit --tag $REGION-docker.pkg.dev/$PROJECT_ID/$AR_REPO/$SERVICE_NAME \
   --project=$PROJECT_ID
 
